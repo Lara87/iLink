@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Task</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <picture>
+                    <img src="./img/Logo.svg" alt="logo">
+                </picture>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#JaneDoe">Jane Doe</a></li>
+                    <li><a href="#tellUsAbout">Tell us about yourself</a></li>
+                    <li><a href="#slider">Slider</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="JaneDoe">
+        <div class="about">
+            <div class="ugol">
+                <div class="about-photo">
+                    <div class="upic">
+                        <img src="img/upic.png" alt="user photo">
+                    </div>
+                    <div class="squares">
+                        <img class="squares" src="img/Group 357.svg" alt="squares">
+                    </div>
+                </div>
+                <div class="about-txt">
+                    <h1>Jane Doe</h1>
+                    <div class="self-date">
+                        <ul>
+                            <li><span>Date of birth</span> 21.04.2001</li>
+                            <li><span>Gender</span> Female </li>
+                            <li><span>Country</span> Corea</li>
+                        </ul>
+                    </div>
+                    <h2 class="about-title">About me</h2>
+                    <span class="about-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                        mollit
+                        anim id est laborum.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tellUsAbout">
+        <div class="wrapper-main">
+            <div class="form__date">
+                <h2>Tell us about yourself</h2>
+                <form onsubmit="getSendForm()">
+                    <div class="form__date-first">
+                        <div class="form__date-item">
+                            <p><label for="fullname">Your name</label></p>
+                            <input class="full-name" id="fullname" type="text" maxlength="20" minlength="2"
+                                oninput="getCheckFullNameGender()" name="fullname" placeholder="Tell us your name">
+                            <p class="error">Error text</p>
+                        </div>
+                        <div class="form__date-item">
+                            <p><label for="selectgender">Your gender</label></p>
+                            <select class="select-gender" id="selectgender" name="selectgender"
+                                oninput="getCheckFullNameGender()">
+                                <option class="legend" selected disabled hidden value="">Chose your gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form__date-second" hidden>
+                        <div class="form__date-item">
+                            <p><label for="country">Your country</label></p>
+                            <input class="country" type="text" minlength="2" maxlength="20"
+                                oninput="getCheckCountryCityDate()" id="country" name="country"
+                                placeholder="Where are you from?">
+                            <p class="error">Error text</p>
+
+                        </div>
+
+                        <div class="form__date-item">
+                            <p><label for="city">Your City</label></p>
+                            <input class="city" type="text" minlength="2" maxlength="20"
+                                oninput="getCheckCountryCityDate()" id="city" name="city"
+                                placeholder="Your native city">
+                            <p class="error">Error text</p>
+                        </div>
+                        <div class="form__date-item">
+                            <p><label for="date-birth">Your date of birth</label></p>
+                            <input class="date-birth" name="date-birth" id="datebirth" type="text"
+                                placeholder="dd.mm.yyyy" onfocus="(this.type='date')"
+                                oninput="getCheckCountryCityDate()">
+                        </div>
+                    </div>
+
+                    <div class="form__add-doc" hidden>
+                        <div class="wrapper-upload">
+                            <p>Proof your identity with some documents</p>
+                            <input name="file" type="file" name="file" id="input__file" class="input input__file"
+                                oninput="getCheckFileIsUploaded()">
+                            <label for="input__file" class="input__file-button">
+                                <span class="input__file-button-text">Add document</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="file__uploaded" hidden>
+                        <div class="img__file-pic">
+                            <img src="img/filePic.svg" alt="">
+                        </div>
+                        <div class="description__file-upload">
+                            <p class="file__name">File_name_001</p>
+                            <p class="file__format">JPG 2,5 mb</p>
+                        </div>
+                        <div class="file__delete">
+                            <img src="img/basket.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="send__form">
+                        <div class="send__button">
+                            <button disabled class="send-info" type="submit">Send info</button>
+                        </div>
+                        <div class="done__send" hidden>
+                            <img class="img__done" src="img/done.svg" alt="done">
+                            <p class="desc__done">Completed</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form__img">
+                <img class="threeSquareColor" src="img/threeSquareColor.svg" alt="threeSquareColor">
+            </div>
+        </div>
+    </section>
+    <section id="slider">
+        <div class="wrapper-footer">
+            <input checked type=radio name="slider" id="slide1" />
+            <input type=radio name="slider" id="slide2" />
+            <input type=radio name="slider" id="slide3" />
+            <div class="slider-wrapper">
+                <div class=inner>
+                    <article>
+                        <div class="info top-left">
+                            <h2>Slide this photo</h2>
+                            <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                nulla pariatur</span>
+                        </div>
+                        <img src="img/slider1.jpg" />
+                    </article>
+                    <article>
+                        <img src="img/slider2.jpg" />
+                    </article>
+                    <article>
+                        <img src="img/slider3.jpg" />
+                    </article>
+                </div>
+            </div>
+            <div class="slider-prev-next-control">
+                <label for=slide1></label>
+                <label for=slide2></label>
+                <label for=slide3></label>
+            </div>
+            <div class="slider-dot-control">
+                <label for=slide1></label>
+                <label for=slide2></label>
+                <label for=slide3></label>
+            </div>
+        </div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
